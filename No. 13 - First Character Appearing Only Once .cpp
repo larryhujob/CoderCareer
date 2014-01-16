@@ -32,12 +32,12 @@ bool findOnce(const string& str, char& ret)
 	vector<int> vec(256,0);
 	for(int i = 0; i < n; i++)
 	{
-		int idx = str[i] - '0';
+		int idx = str[i];
 		vec[idx]++;
 	}
 	for(int i = 0; i < n; i++)
 	{
-		int idx = str[i] - '0';
+		int idx = str[i];
 		if(vec[idx] == 1)
 		{
 			ret = str[i];
