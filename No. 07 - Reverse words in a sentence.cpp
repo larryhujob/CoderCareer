@@ -3,6 +3,7 @@
 using namespace std;
 
 
+
 void reverseWord(string& str, int i, int j)
 {
 	while(i < j)
@@ -13,30 +14,31 @@ void reverseWord(string& str, int i, int j)
 		i++;
 		j--;
 	}
+
 }
 
 void reverseSentence(string& str)
 {
 	if(str.empty())
-		return;
+		return ;
 	int n = str.size();
-	bool inword = false;
+	reverseWord(str,0,n-1);
+	bool inWord = false;
 	int start = 0;
 	for(int i = 0; i < n; i++)
 	{
-		if(i == n-1 && str[i] != ' ')
-			reverseWord(str,start,i);
-		if(str[i] == ' ' && inword)
+		if(str[i] == ' ' && inWord)	//end
 		{
-			inword = false;
+			inWord = false;
 			reverseWord(str,start,i-1);
 		}
-		if(str[i] != ' ' && !inword)
+		else if(str[i] != ' ' && !inWord) // begin
 		{
-			inword = true;
+			inWord = true;
 			start = i;
 		}
-	}
-	reverseWord(str,0,n-1);
-}
 
+	}
+	if(inWord)
+		reverseWord(str,start,n-1);
+}
