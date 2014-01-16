@@ -37,7 +37,7 @@ void reverseSentence(string& str)
 			inWord = true;
 			start = i;
 		}
-
+ 
 	}
 	if(inWord)
 		reverseWord(str,start,n-1);
